@@ -42,9 +42,7 @@ jobs:
           key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
           restore-keys: ${{runner.os}}-m2
             
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: sh ./github-actions.sh
+    
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -53,34 +51,3 @@ jobs:
 
       - name: Final Step, display the display space
         run: df
-        
-  build-on-windows:
-    # The type of runner that the job will run on
-    runs-on: windows-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - name: step1 display the disk space
-        run: ls
-        
-      - name: Step2 - checout the code to make the job access it.
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        uses: actions/checkout@v4
-        
-      - name: Step3 - setup java jdk
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      
-      # Runs a single command using the runners shell
-      - name: check windows execution policy
-        run: Get-ExecutionPolicy
-
-      # Runs a set of commands using the runners shell
-      - name: Envir
-        run: |
-          echo Display all environment variables in windows
-          env
-
-      - name: Final Step, display the display space
-        run: ls
