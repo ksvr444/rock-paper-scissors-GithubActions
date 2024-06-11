@@ -34,7 +34,15 @@ jobs:
           
       - name: build maven project
         run: mvn -B package --file pom.xml
+        
+      - name: List the current directory
+        run: ls -a
 
+      - name: What is in the target directory
+        run: |
+          cd target
+          ls -a
+          
       - name: create cache
         uses: actions/cache@v2
         with:
