@@ -46,7 +46,7 @@ jobs:
           ls -a
       
       - name: Persist workflow data as artifacts
-        uses: actions/upload-artifacts@v2
+        uses: actions/upload-artifact@v2
         with:
           name: github-actions-artifacts
           path: staging
